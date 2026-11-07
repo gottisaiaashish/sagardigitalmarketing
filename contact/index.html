@@ -225,20 +225,23 @@
             </div>
 
             <form id="contact-form" class="space-y-6">
+              <input type="hidden" name="access_key" value="af9947f5-4504-4e04-9f9f-4df4f5318f8d">
+              <input type="hidden" name="subject" value="🔥 New Client Assessment Inquiry - Sagar Digital Marketing">
+              <input type="hidden" name="from_name" value="Sagar Digital Marketing Website">
               
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label for="client-name" class="block text-[11px] font-mono uppercase tracking-wider text-[#A0A0A0] mb-2">
                     Your Name <span class="text-[#E87348]">*</span>
                   </label>
-                  <input type="text" id="client-name" required placeholder="e.g. Sagar Patel" class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white placeholder-[#555555] focus:outline-none focus:border-[#E87348] transition-colors font-light">
+                  <input type="text" id="client-name" name="name" required placeholder="e.g. Sagar Patel" class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white placeholder-[#555555] focus:outline-none focus:border-[#E87348] transition-colors font-light">
                 </div>
 
                 <div>
                   <label for="business-name" class="block text-[11px] font-mono uppercase tracking-wider text-[#A0A0A0] mb-2">
                     Business / Brand Name <span class="text-[#E87348]">*</span>
                   </label>
-                  <input type="text" id="business-name" required placeholder="e.g. Roastery Cafe & Bakery" class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white placeholder-[#555555] focus:outline-none focus:border-[#E87348] transition-colors font-light">
+                  <input type="text" id="business-name" name="business_name" required placeholder="e.g. Roastery Cafe & Bakery" class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white placeholder-[#555555] focus:outline-none focus:border-[#E87348] transition-colors font-light">
                 </div>
               </div>
 
@@ -247,14 +250,14 @@
                   <label for="client-email" class="block text-[11px] font-mono uppercase tracking-wider text-[#A0A0A0] mb-2">
                     Email Address <span class="text-[#E87348]">*</span>
                   </label>
-                  <input type="email" id="client-email" required placeholder="sagar@example.com" class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white placeholder-[#555555] focus:outline-none focus:border-[#E87348] transition-colors font-light">
+                  <input type="email" id="client-email" name="email" required placeholder="sagar@example.com" class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white placeholder-[#555555] focus:outline-none focus:border-[#E87348] transition-colors font-light">
                 </div>
 
                 <div>
                   <label for="client-phone" class="block text-[11px] font-mono uppercase tracking-wider text-[#A0A0A0] mb-2">
                     Phone / WhatsApp Number
                   </label>
-                  <input type="tel" id="client-phone" placeholder="+91 98765 00000" class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white placeholder-[#555555] focus:outline-none focus:border-[#E87348] transition-colors font-light">
+                  <input type="tel" id="client-phone" name="phone" placeholder="+91 98765 00000" class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white placeholder-[#555555] focus:outline-none focus:border-[#E87348] transition-colors font-light">
                 </div>
               </div>
 
@@ -262,13 +265,13 @@
                 <label for="business-sector" class="block text-[11px] font-mono uppercase tracking-wider text-[#A0A0A0] mb-2">
                   Business Industry / Category
                 </label>
-                <select id="business-sector" class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white focus:outline-none focus:border-[#E87348] transition-colors font-light">
-                  <option value="retail">Retail Shop / Local Store</option>
-                  <option value="cafe">Restaurant / Cafe / Food & Beverage</option>
-                  <option value="startup">Startup / Technology / App</option>
-                  <option value="fashion">Fashion / Jewelry / Lifestyle</option>
-                  <option value="services">Professional Services (Clinic, Consultant, Firm)</option>
-                  <option value="other">Other Unique Venture</option>
+                <select id="business-sector" name="industry" class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white focus:outline-none focus:border-[#E87348] transition-colors font-light">
+                  <option value="Retail Shop / Local Store">Retail Shop / Local Store</option>
+                  <option value="Restaurant / Cafe / Food & Beverage">Restaurant / Cafe / Food & Beverage</option>
+                  <option value="Startup / Technology / App">Startup / Technology / App</option>
+                  <option value="Fashion / Jewelry / Lifestyle">Fashion / Jewelry / Lifestyle</option>
+                  <option value="Professional Services (Clinic, Consultant, Firm)">Professional Services (Clinic, Consultant, Firm)</option>
+                  <option value="Other Unique Venture">Other Unique Venture</option>
                 </select>
               </div>
 
@@ -324,7 +327,7 @@
                 <label for="client-message" class="block text-[11px] font-mono uppercase tracking-wider text-[#A0A0A0] mb-2">
                   Current Challenge or Growth Target
                 </label>
-                <textarea id="client-message" rows="4" placeholder="Briefly describe what you would like to achieve (e.g. getting more weekday footfall to our cafe, launching an apparel collection, or refreshing our visual logo)..." class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white placeholder-[#555555] focus:outline-none focus:border-[#E87348] transition-colors font-light"></textarea>
+                <textarea id="client-message" name="message" rows="4" placeholder="Briefly describe what you would like to achieve (e.g. getting more weekday footfall to our cafe, launching an apparel collection, or refreshing our visual logo)..." class="w-full bg-[#0D0D0D] border border-white/[0.08] rounded-xl p-3.5 text-xs text-white placeholder-[#555555] focus:outline-none focus:border-[#E87348] transition-colors font-light"></textarea>
               </div>
 
               <div>
@@ -355,9 +358,14 @@
             Thank you for reaching out. Our team will review your business details and contact you within 24 hours with a strategic outline.
           </p>
         </div>
-        <button type="button" id="success-modal-close" class="btn-coral w-full text-xs uppercase tracking-wider py-3 justify-center">
-          <span>Back to Website →</span>
-        </button>
+        <div class="flex flex-col gap-3 pt-2">
+          <a href="https://wa.me/917032619866?text=Hello%20Sagar%20Digital%20Marketing%2C%20I%20just%20submitted%20my%20brief%20on%20your%20website." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 text-xs font-mono uppercase tracking-wider text-white bg-[#E87348] hover:bg-[#F28054] px-4 py-3.5 rounded-full transition-colors font-medium">
+            <span>Chat on WhatsApp Directly →</span>
+          </a>
+          <button type="button" id="success-modal-close" class="btn-outline-dark w-full text-xs uppercase tracking-wider py-3 justify-center">
+            <span>Close</span>
+          </button>
+        </div>
       </div>
     </div>
 
