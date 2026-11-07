@@ -570,56 +570,62 @@ html.lenis, html.lenis body {
 }
 
 /* ===================================================
-   SCROLL PORTAL (REACT BITS PRO SPECIFICATION)
-   Scroll Through Frames Nested One Inside The Next
+   PROGRESSIVE STACKING PROCESS DECK (SECTION 07)
+   Slow, deliberate sticky depth layering (One after another)
    =================================================== */
-.scroll-portal-section {
-  position: relative;
-  background: #0A0A0A;
-}
-
-.scroll-portal-stage {
-  perspective: 1200px;
-  perspective-origin: 50% 50%;
-  transform-style: preserve-3d;
-}
-
-.portal-frame {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  border-radius: 28px;
-  overflow: hidden;
-  background: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95);
-  transform-origin: 50% 50%;
-  will-change: transform, opacity;
-  transition: border-radius 0.2s ease;
-}
-
-.portal-frame-inner {
+.process-stack-container {
   position: relative;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(145deg, #1C1613 0%, #111111 50%, #0A0A0A 100%);
-  z-index: 1;
+  padding-bottom: 2rem;
 }
 
-.portal-step-pill {
-  width: 38px;
-  height: 4px;
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.15);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+.process-stack-card {
+  position: -webkit-sticky;
+  position: sticky;
+  top: calc(96px + var(--card-index, 0) * 26px);
+  margin-bottom: 260px; /* Generous vertical scroll distance for unhurried, slow transitions */
+  z-index: calc(10 + var(--card-index, 0));
 }
 
-.portal-step-pill.active {
-  background: linear-gradient(90deg, #E87348 0%, #FFA57D 100%);
-  box-shadow: 0 0 12px rgba(232, 115, 72, 0.6);
-  width: 52px;
+.process-stack-card:last-child {
+  margin-bottom: 2rem;
+}
+
+.process-stack-card-inner {
+  position: relative;
+  background: linear-gradient(155deg, #181513 0%, #121212 55%, #0D0D0D 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.75rem;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 -1px 0 rgba(255, 255, 255, 0.08);
+  transform-origin: 50% 12%;
+  will-change: transform, filter, opacity;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.15s ease-out;
+}
+
+.process-stack-card.is-current .process-stack-card-inner {
+  border-color: rgba(232, 115, 72, 0.4);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 45px rgba(232, 115, 72, 0.16);
+}
+
+@media (max-width: 768px) {
+  .process-stack-card {
+    top: calc(75px + var(--card-index, 0) * 16px);
+    margin-bottom: 140px;
+  }
+  .process-stack-card:last-child {
+    margin-bottom: 1.5rem;
+  }
+  .process-stack-card-inner {
+    border-radius: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-stack-card-inner {
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
+  }
 }
 
 /* Reduced motion */

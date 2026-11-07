@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initBendingMarquee();
   initElasticLettering();
   initMomentumRing();
-  initScrollPortal();
+  initProcessStack();
   initCounters();
   initAccordions();
   initCurrentYear();
@@ -852,82 +852,72 @@ function initMomentumRing() {
   });
 }
 
-// Scroll Portal Nested Frames Zoom Tunnel (React Bits Pro)
-function initScrollPortal() {
-  const portalSections = document.querySelectorAll(".scroll-portal-section");
-  if (!portalSections.length) return;
+// Progressive Stacking Process Deck (Section 07: The Five-Step Growth System)
+// Implements deliberate, slow, cinematic stacking depth as cards arrive one after another
+function initProcessStack() {
+  const container = document.querySelector(".process-stack-container");
+  if (!container) return;
+  const cards = Array.from(container.querySelectorAll(".process-stack-card"));
+  if (!cards.length) return;
 
-  portalSections.forEach((section) => {
-    const frames = section.querySelectorAll(".portal-frame");
-    const pills = section.querySelectorAll(".portal-step-pill");
-    if (!frames.length) return;
+  const updateStack = () => {
+    const vh = window.innerHeight;
+    const cardRects = cards.map((c) => c.getBoundingClientRect());
 
-    const count = frames.length;
-    const maxScale = 5.5;
+    cards.forEach((card, i) => {
+      const currentRect = cardRects[i];
+      const stickyOffset = 96 + i * 26;
+      const inner = card.querySelector(".process-stack-card-inner");
 
-    const updatePortal = () => {
-      const rect = section.getBoundingClientRect();
-      const scrollHeight = section.offsetHeight - window.innerHeight;
-      if (scrollHeight <= 0) return;
-
-      // Current progress through the portal section: 0 to 1
-      let progress = -rect.top / scrollHeight;
-      progress = Math.max(0, Math.min(1, progress));
-
-      const activeIndex = Math.min(count - 1, Math.floor(progress * count));
-
-      // Update progress indicators
-      pills.forEach((pill, idx) => {
-        if (idx === activeIndex) {
-          pill.classList.add("active");
-        } else {
-          pill.classList.remove("active");
+      // Calculate the slow, progressive stacking pressure from subsequent incoming cards
+      let stackDepth = 0;
+      for (let j = i + 1; j < cards.length; j++) {
+        const nextTop = cardRects[j].top;
+        const nextSticky = 96 + j * 26;
+        // Travel range spans from when incoming card enters viewport (vh * 0.9) to its sticky dock
+        const travelRange = (vh * 0.9) - nextSticky;
+        if (travelRange > 0) {
+          const rawProgress = (vh * 0.9 - nextTop) / travelRange;
+          const progress = Math.max(0, Math.min(1, rawProgress));
+          stackDepth += progress;
         }
+      }
+
+      // Smooth, slow depth modulation
+      const scale = Math.max(0.88, 1 - stackDepth * 0.035);
+      const brightness = Math.max(0.55, 1 - stackDepth * 0.2);
+      const opacity = Math.max(0.72, 1 - stackDepth * 0.08);
+
+      if (inner) {
+        inner.style.transform = `scale(${scale.toFixed(3)}) translateZ(0)`;
+        inner.style.filter = `brightness(${brightness.toFixed(3)})`;
+        inner.style.opacity = opacity.toFixed(3);
+      }
+
+      // Active spotlight highlight for the card currently at the top of the stack
+      const isTopVisible = stackDepth < 0.8 && currentRect.top <= stickyOffset + 60;
+      if (isTopVisible) {
+        card.classList.add("is-current");
+      } else {
+        card.classList.remove("is-current");
+      }
+    });
+  };
+
+  let ticking = false;
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateStack();
+        ticking = false;
       });
+      ticking = true;
+    }
+  };
 
-      frames.forEach((frame, idx) => {
-        const start = idx / count;
-        const diff = progress - start;
-
-        let scale = 1;
-        let opacity = 1;
-        let zIndex = count - idx;
-        let borderRadius = "28px";
-
-        if (diff < 0) {
-          // Inner nested incoming frame
-          scale = Math.max(0.12, 1 - Math.abs(diff) * count * 0.72);
-          opacity = Math.min(1, Math.max(0, 0.4 + (1 + diff * count) * 0.6));
-        } else {
-          // Outgoing zoom-forward frame
-          scale = 1 + diff * count * (maxScale - 1);
-          const fadeOutStart = 0.38 / count;
-          const fadeOutEnd = 0.95 / count;
-
-          if (diff > fadeOutEnd) {
-            opacity = 0;
-          } else if (diff > fadeOutStart) {
-            opacity = 1 - (diff - fadeOutStart) / (fadeOutEnd - fadeOutStart);
-          } else {
-            opacity = 1;
-          }
-
-          if (diff > 0.25 / count) {
-            borderRadius = "0px";
-          }
-        }
-
-        frame.style.transform = `scale(${scale.toFixed(3)})`;
-        frame.style.opacity = opacity.toFixed(3);
-        frame.style.zIndex = zIndex;
-        frame.style.borderRadius = borderRadius;
-        frame.style.pointerEvents = (diff >= 0 && opacity > 0.5) ? "auto" : "none";
-      });
-    };
-
-    window.addEventListener("scroll", updatePortal, { passive: true });
-    updatePortal();
-  });
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
+  updateStack();
 }
 
 
