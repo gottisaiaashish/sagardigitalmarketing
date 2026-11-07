@@ -15,9 +15,9 @@ const BRAND_CONFIG = {
   contact: {
     email: "hello@sagardigitalmarketing.com",
     emailDisplay: "hello@sagardigitalmarketing.com",
-    phone: "+91 98765 43210", // Placeholder for actual business line
-    phoneDisplay: "+91 (Placeholder) / WhatsApp Ready",
-    whatsappLink: "https://wa.me/919876543210?text=Hello%20Sagar%20Digital%20Marketing%2C%20I%20would%20like%20to%20grow%20my%20business.",
+    phone: "+91 70326 19866",
+    phoneDisplay: "+91 70326 19866",
+    whatsappLink: "https://wa.me/917032619866?text=Hello%20Sagar%20Digital%20Marketing%2C%20I%20would%20like%20to%20discuss%20growing%20my%20business.",
     address: "Creative Hub & Studio, Metro City, India",
     addressDisplay: "Creative Hub & Studio, India (Consultations Worldwide)",
     workingHours: "Monday – Saturday: 9:30 AM – 7:00 PM IST"
@@ -27,8 +27,8 @@ const BRAND_CONFIG = {
   social: {
     instagram: "https://instagram.com/sagardigitalmarketing",
     instagramHandle: "@sagardigitalmarketing",
-    whatsapp: "https://wa.me/919876543210",
-    whatsappDisplay: "+91 98765 43210",
+    whatsapp: "https://wa.me/917032619866",
+    whatsappDisplay: "+91 70326 19866",
     linkedin: "https://linkedin.com/company/sagardigitalmarketing",
     youtube: "https://youtube.com/@sagardigitalmarketing",
     twitter: "https://twitter.com/sagarmarketing"
