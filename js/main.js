@@ -12,10 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initActiveNav();
   initSectorLoop();
   initSpotlightCards();
-  initScrollZoom();
   initBendingMarquee();
   initElasticLettering();
-  initMomentumRing();
   initProcessStack();
   initCounters();
   initAccordions();
@@ -318,34 +316,7 @@ function initSpotlightCards() {
   });
 }
 
-// Scroll-Driven Cinematic Zoom Reveal Card (Matching Reference Video)
-function initScrollZoom() {
-  const zoomCards = document.querySelectorAll(".scroll-zoom-card");
-  if (!zoomCards.length) return;
 
-  const updateZoom = () => {
-    const vh = window.innerHeight;
-    zoomCards.forEach(card => {
-      const rect = card.getBoundingClientRect();
-      const start = vh * 0.95;
-      const end = vh * 0.35;
-      let progress = (start - rect.top) / (start - end);
-      progress = Math.max(0, Math.min(1, progress));
-
-      const eased = Math.sin((progress * Math.PI) / 2);
-      const scale = 0.84 + (0.16 * eased);
-      const radius = 2.5 - (1.25 * eased);
-      const opacity = 0.65 + (0.35 * eased);
-
-      card.style.setProperty("--zoom-scale", scale.toFixed(3));
-      card.style.setProperty("--zoom-radius", `${radius.toFixed(2)}rem`);
-      card.style.setProperty("--zoom-opacity", opacity.toFixed(3));
-    });
-  };
-
-  window.addEventListener("scroll", updateZoom, { passive: true });
-  updateZoom();
-}
 
 // Animated Metric Counters
 function initCounters() {
@@ -676,181 +647,7 @@ function initElasticLettering() {
   });
 }
 
-// Momentum Ring / Vertical Reel 3D Physics & Velocity Blur (React Bits Pro)
-function initMomentumRing() {
-  const stages = document.querySelectorAll(".momentum-ring-stage");
-  if (!stages.length) return;
 
-  stages.forEach((stage) => {
-    const cylinder = stage.querySelector(".momentum-ring-cylinder");
-    const cards = stage.querySelectorAll(".momentum-ring-card");
-    if (!cylinder || !cards.length) return;
-
-    const count = cards.length;
-    const angleStep = 360 / count;
-    const radius = parseFloat(stage.getAttribute("data-radius") || "380");
-    const autoSpeed = parseFloat(stage.getAttribute("data-speed") || "5");
-    const shouldSnap = stage.getAttribute("data-snap") !== "false";
-
-    // Setup 3D transform for each card on the cylinder
-    cards.forEach((card, i) => {
-      const angle = i * angleStep;
-      card.style.transform = `rotateX(${angle}deg) translateZ(${radius}px)`;
-    });
-
-    let currentRotation = 0;
-    let velocity = 0;
-    let isDragging = false;
-    let isHovered = false;
-    let dragStartY = 0;
-    let lastDragY = 0;
-    let lastDragTime = 0;
-    let lastScrollY = window.scrollY;
-
-    // Hover detection
-    stage.addEventListener("mouseenter", () => { isHovered = true; });
-    stage.addEventListener("mouseleave", () => { isHovered = false; });
-
-    // Pointer Drag & Flick
-    stage.addEventListener("pointerdown", (e) => {
-      isDragging = true;
-      stage.classList.add("is-dragging");
-      dragStartY = e.clientY;
-      lastDragY = e.clientY;
-      lastDragTime = performance.now();
-      velocity = 0;
-      stage.setPointerCapture?.(e.pointerId);
-    });
-
-    const onPointerMove = (e) => {
-      if (!isDragging) return;
-      const now = performance.now();
-      const dt = Math.max(1, now - lastDragTime);
-      const dy = e.clientY - lastDragY;
-
-      const rotDelta = -(dy / radius) * (180 / Math.PI) * 1.35;
-      currentRotation += rotDelta;
-
-      // Track flick velocity
-      velocity = (rotDelta / dt) * 16;
-
-      lastDragY = e.clientY;
-      lastDragTime = now;
-    };
-
-    const onPointerUp = (e) => {
-      if (!isDragging) return;
-      isDragging = false;
-      stage.classList.remove("is-dragging");
-      try {
-        stage.releasePointerCapture?.(e.pointerId);
-      } catch {}
-
-      if (Math.abs(velocity) < 0.8 && shouldSnap) {
-        snapToNearest();
-      }
-    };
-
-    stage.addEventListener("pointermove", onPointerMove);
-    stage.addEventListener("pointerup", onPointerUp);
-    stage.addEventListener("pointercancel", onPointerUp);
-
-    // Click card to center / snap
-    cards.forEach((card, idx) => {
-      card.addEventListener("click", () => {
-        if (Math.abs(velocity) > 1) return;
-        const targetAngle = -idx * angleStep;
-        const diff = (targetAngle - currentRotation) % 360;
-        const shortestDiff = ((diff + 540) % 360) - 180;
-        animateTo(currentRotation + shortestDiff);
-      });
-    });
-
-    const snapToNearest = () => {
-      const nearestIdx = Math.round(currentRotation / angleStep);
-      const targetAngle = nearestIdx * angleStep;
-      animateTo(targetAngle);
-    };
-
-    const animateTo = (targetAngle) => {
-      const start = currentRotation;
-      const startTime = performance.now();
-      const duration = 450;
-
-      const step = (now) => {
-        const elapsed = now - startTime;
-        const p = Math.min(1, elapsed / duration);
-        const ease = 1 - Math.pow(1 - p, 3);
-        currentRotation = start + (targetAngle - start) * ease;
-
-        if (p < 1) {
-          requestAnimationFrame(step);
-        } else {
-          velocity = 0;
-        }
-      };
-      requestAnimationFrame(step);
-    };
-
-    // Scroll-driven velocity impulse (Lenis smooth scroll integration)
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-      const rect = stage.getBoundingClientRect();
-      const vh = window.innerHeight;
-
-      // Only apply if visible in viewport
-      if (rect.top < vh && rect.bottom > 0) {
-        const delta = scrollY - lastScrollY;
-        velocity += delta * 0.16;
-      }
-      lastScrollY = scrollY;
-    }, { passive: true });
-
-    // Main animation loop
-    let lastTime = performance.now();
-
-    const loop = (now) => {
-      const delta = (now - lastTime) / 1000;
-      lastTime = now;
-
-      if (!isDragging) {
-        if (Math.abs(velocity) > 0.08) {
-          // Coasting with friction decay
-          velocity *= Math.pow(0.92, delta * 60);
-          currentRotation += velocity * delta * 60;
-        } else if (shouldSnap && Math.abs(velocity) > 0) {
-          velocity = 0;
-          snapToNearest();
-        } else if (!isHovered && autoSpeed > 0) {
-          // Autonomous slow spin
-          currentRotation += autoSpeed * delta;
-        }
-      }
-
-      // Render 3D cylinder rotation
-      cylinder.style.transform = `rotateX(${currentRotation.toFixed(2)}deg)`;
-
-      // Dynamic velocity motion blur
-      const blur = Math.min(8, Math.abs(velocity) * 0.45);
-      cylinder.style.filter = blur > 0.4 ? `blur(${blur.toFixed(1)}px)` : "none";
-
-      // Mark front active card
-      const normalizedAngle = ((-currentRotation % 360) + 360) % 360;
-      const activeIdx = Math.round(normalizedAngle / angleStep) % count;
-      cards.forEach((c, i) => {
-        if (i === activeIdx) {
-          c.classList.add("is-active");
-        } else {
-          c.classList.remove("is-active");
-        }
-      });
-
-      requestAnimationFrame(loop);
-    };
-
-    requestAnimationFrame(loop);
-  });
-}
 
 // Progressive Stacking Process Deck (Section 07: The Five-Step Growth System)
 // Ensures each card sits in the middle alone; next card is 100% hidden until user scrolls

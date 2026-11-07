@@ -266,20 +266,7 @@ html.lenis, html.lenis body {
   z-index: 20;
 }
 
-/* Scroll-Driven Cinematic Zoom Reveal Card (Matching Reference Video) */
-.scroll-zoom-container {
-  overflow: hidden;
-  position: relative;
-}
 
-.scroll-zoom-card {
-  transform: scale(var(--zoom-scale, 0.85));
-  border-radius: var(--zoom-radius, 2.5rem);
-  opacity: var(--zoom-opacity, 0.7);
-  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), border-radius 0.15s ease, opacity 0.15s ease;
-  will-change: transform, border-radius, opacity;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 60px rgba(240, 110, 55, 0.1);
-}
 
 /* Enhanced Understated Scroll Reveal */
 .reveal-init {
@@ -504,70 +491,7 @@ html.lenis, html.lenis body {
   text-shadow: 0 0 20px rgba(232, 115, 72, 0.45);
 }
 
-/* ===================================================
-   MOMENTUM RING / VERTICAL REEL (REACT BITS PRO)
-   3D Cylinder Ring with Velocity Motion Blur & Snap Physics
-   =================================================== */
-.momentum-ring-section {
-  position: relative;
-  overflow: hidden;
-  background: #080808;
-}
 
-.momentum-ring-stage {
-  position: relative;
-  width: 100%;
-  height: 560px;
-  perspective: 1100px;
-  perspective-origin: 50% 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  touch-action: none;
-  user-select: none;
-  -webkit-user-select: none;
-  cursor: grab;
-}
-
-.momentum-ring-stage.is-dragging {
-  cursor: grabbing;
-}
-
-.momentum-ring-cylinder {
-  position: relative;
-  width: 320px;
-  height: 400px;
-  transform-style: preserve-3d;
-  will-change: transform, filter;
-  transition: filter 0.15s ease;
-}
-
-.momentum-ring-card {
-  position: absolute;
-  inset: 0;
-  width: 320px;
-  height: 400px;
-  border-radius: 1.5rem;
-  background: #141414;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  will-change: transform;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  transform-style: preserve-3d;
-}
-
-.momentum-ring-card:hover {
-  border-color: rgba(232, 115, 72, 0.6);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(232, 115, 72, 0.2);
-}
-
-.momentum-ring-card.is-active {
-  border-color: rgba(232, 115, 72, 0.7);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.95), 0 0 35px rgba(232, 115, 72, 0.25);
-}
 
 /* ===================================================
    PROGRESSIVE STACKING PROCESS DECK (SECTION 07)
