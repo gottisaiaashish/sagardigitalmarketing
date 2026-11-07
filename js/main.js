@@ -128,7 +128,7 @@ function initActiveNav() {
 // Single-Card Cinematic Loop Showcase ("screen medhaki ochi back elipovali")
 function initSectorLoop() {
   const slides = document.querySelectorAll(".sector-slide");
-  const tabBtns = document.querySelectorAll(".sector-tab-btn");
+
   const prevBtn = document.querySelector("#sector-prev");
   const nextBtn = document.querySelector("#sector-next");
   if (!slides.length) return;
@@ -165,16 +165,7 @@ function initSectorLoop() {
     void nextSlideEl.offsetWidth;
     nextSlideEl.classList.add("active");
 
-    // Update tab indicators
-    tabBtns.forEach((btn, i) => {
-      if (i === currentIndex) {
-        btn.classList.add("text-[#FFA57D]", "border-[#E87348]/70", "bg-[#1C1613]");
-        btn.classList.remove("text-white/50", "border-white/[0.08]", "bg-[#111111]");
-      } else {
-        btn.classList.remove("text-[#FFA57D]", "border-[#E87348]/70", "bg-[#1C1613]");
-        btn.classList.add("text-white/50", "border-white/[0.08]", "bg-[#111111]");
-      }
-    });
+
   }
 
   function nextSlide() {
@@ -188,13 +179,7 @@ function initSectorLoop() {
   if (nextBtn) nextBtn.addEventListener("click", () => { nextSlide(); resetTimer(); });
   if (prevBtn) prevBtn.addEventListener("click", () => { prevSlide(); resetTimer(); });
 
-  tabBtns.forEach((btn, i) => {
-    btn.addEventListener("click", () => {
-      const dir = i >= currentIndex ? 1 : -1;
-      showSlide(i, dir);
-      resetTimer();
-    });
-  });
+
 
   const stage = document.querySelector("#sector-showcase-stage");
   if (stage) {
