@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capabilities & Services | Editorial Agency</title>
+  <meta name="description" content="Explore our four core disciplines: Social Media Management, Digital Advertising, Content Creation, and Brand Identity & Development.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              DEFAULT: '#0A0A0A',
+              surface: '#111111',
+              card: '#141414',
+              hover: '#191919'
+            },
+            coral: {
+              DEFAULT: '#E87348',
+              hover: '#F28054',
+              dark: '#C95326',
+              muted: 'rgba(232, 115, 72, 0.12)'
+            },
+            subtle: '#7A7A7A'
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-[#0A0A0A] text-[#F5F5F5] flex flex-col min-h-screen selection:bg-[#E87348] selection:text-white">
+
+  <!-- TOP NAVIGATION (NO BRAND NAME, NO LOGO) -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <nav class="hidden md:flex items-center gap-10">
+        <a href="/" class="nav-link text-xs uppercase tracking-widest text-white/75 hover:text-[#E87348] transition-colors" data-nav-item="desktop">Home</a>
+        <a href="/services" class="nav-link text-xs uppercase tracking-widest text-white/75 hover:text-[#E87348] transition-colors" data-nav-item="desktop">Services</a>
+        <a href="/our-work" class="nav-link text-xs uppercase tracking-widest text-white/75 hover:text-[#E87348] transition-colors" data-nav-item="desktop">Our Work</a>
+        <a href="/about-us" class="nav-link text-xs uppercase tracking-widest text-white/75 hover:text-[#E87348] transition-colors" data-nav-item="desktop">About Us</a>
+        <a href="/contact" class="nav-link text-xs uppercase tracking-widest text-white/75 hover:text-[#E87348] transition-colors" data-nav-item="desktop">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <a href="/contact" class="btn-coral text-xs uppercase tracking-wider py-2.5 px-6">
+          <span>Let's Talk</span>
+          <span class="text-xs">→</span>
+        </a>
+      </div>
+
+      <button id="mobile-menu-toggle" type="button" aria-label="Open Navigation Menu" class="md:hidden p-2 text-white/80 hover:text-[#E87348] transition-colors">
+        <span class="text-xs uppercase tracking-widest font-mono">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-[#0A0A0A]/90 backdrop-blur-md z-50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 right-0 w-full max-w-sm h-full bg-[#0D0D0D] text-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-between p-8 border-l border-white/10">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#7A7A7A]">Navigation</span>
+        <button id="mobile-menu-close" class="text-xs font-mono uppercase tracking-wider text-muted hover:text-white">
+          Close [×]
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-6 mt-10">
+        <a href="/" class="nav-link text-2xl font-serif text-white/80 hover:text-[#E87348] transition-colors">Home</a>
+        <a href="/services" class="nav-link text-2xl font-serif text-white/80 hover:text-[#E87348] transition-colors">Services</a>
+        <a href="/our-work" class="nav-link text-2xl font-serif text-white/80 hover:text-[#E87348] transition-colors">Our Work</a>
+        <a href="/about-us" class="nav-link text-2xl font-serif text-white/80 hover:text-[#E87348] transition-colors">About Us</a>
+        <a href="/contact" class="nav-link text-2xl font-serif text-white/80 hover:text-[#E87348] transition-colors">Contact</a>
+      </nav>
+    </div>
+
+    <div class="pt-8 border-t border-white/10 space-y-4">
+      <a href="/contact" class="btn-coral w-full text-center py-3.5 text-xs uppercase tracking-wider justify-center">
+        <span>Let's Talk</span>
+        <span>→</span>
+      </a>
+      <p class="text-[11px] font-mono text-[#7A7A7A] text-center tracking-wider uppercase">From Small Business to Recognizable Brand</p>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="flex-grow pt-20">
+    
+    <section class="bg-[#0A0A0A] py-24 lg:py-32 border-b border-white/[0.06] relative">
+      <div class="ambient-glow"></div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div class="max-w-3xl space-y-6">
+          <span class="text-xs font-mono uppercase tracking-widest text-[#E87348]">Capabilities</span>
+          <h1 class="font-serif text-5xl sm:text-7xl text-white font-normal leading-[1.05]">
+            Engineered for Commercial Distinction.
+          </h1>
+          <p class="text-lg sm:text-xl font-serif italic text-[#8A8A8A] font-light leading-relaxed">
+            We bridge the gap between high-end creative studio aesthetics and results-driven digital performance across four dedicated disciplines.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENDING MARQUEE: Core Capabilities & Performance Standards -->
+    <section class="bending-marquee-section py-8 bg-[#0A0A0A] border-b border-white/[0.06] overflow-hidden relative select-none">
+      <div class="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-48 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/85 to-transparent z-20"></div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-48 bg-gradient-to-l from-[#0A0A0A] via-[#0A0A0A]/85 to-transparent z-20"></div>
+
+      <div class="bending-marquee-stage bending-marquee-arch">
+        <div class="bending-marquee-track-wrap">
+          <div class="bending-marquee-track bending-marquee-scroll-left">
+            <div class="bending-marquee-pill"><span>Social Media Management</span><span class="text-[#E87348] text-sm">✦</span></div>
+            <div class="bending-marquee-pill"><span>Paid Performance Advertising</span><span class="text-[#E87348] text-sm">✦</span></div>
+            <div class="bending-marquee-pill"><span>Bespoke Brand Identity & Packaging</span><span class="text-[#E87348] text-sm">✦</span></div>
+            <div class="bending-marquee-pill"><span>Content Production & Short-Form Video</span><span class="text-[#E87348] text-sm">✦</span></div>
+            <div class="bending-marquee-pill"><span>Zero Generic Templates</span><span class="text-[#E87348] text-sm">✦</span></div>
+            <div class="bending-marquee-pill"><span>Direct Founder Strategy</span><span class="text-[#E87348] text-sm">✦</span></div>
+            <!-- Duplicate for infinite seamless loop -->
+            <div class="bending-marquee-pill"><span>Social Media Management</span><span class="text-[#E87348] text-sm">✦</span></div>
+            <div class="bending-marquee-pill"><span>Paid Performance Advertising</span><span class="text-[#E87348] text-sm">✦</span></div>
+            <div class="bending-marquee-pill"><span>Bespoke Brand Identity & Packaging</span><span class="text-[#E87348] text-sm">✦</span></div>
+            <div class="bending-marquee-pill"><span>Content Production & Short-Form Video</span><span class="text-[#E87348] text-sm">✦</span></div>
+            <div class="bending-marquee-pill"><span>Zero Generic Templates</span><span class="text-[#E87348] text-sm">✦</span></div>
+            <div class="bending-marquee-pill"><span>Direct Founder Strategy</span><span class="text-[#E87348] text-sm">✦</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILED DISCIPLINES -->
+    <section class="py-28 bg-[#0D0D0D] border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-28">
+
+        <!-- 01: Social Media Management -->
+        <div id="social-media" class="scroll-mt-28 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+          <div class="lg:col-span-5 space-y-6">
+            <span class="font-mono text-xs uppercase tracking-widest text-[#7A7A7A]">01 / Organic Reach</span>
+            <h2 class="font-serif text-4xl text-white font-normal">Social Media Management</h2>
+            <p class="text-sm text-[#8A8A8A] leading-relaxed font-light">
+              Social media is your digital storefront. We turn inconsistent, low-engagement accounts into vibrant brand channels that cultivate loyal followings and convert curious scrollers into paying clients.
+            </p>
+            <div class="pt-2">
+              <a href="/contact?service=social-media" class="btn-coral text-xs uppercase tracking-wider py-3 px-6">
+                <span>Inquire About Social Media →</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-[#141414] p-10 rounded-3xl border border-white/[0.07] space-y-8">
+            <h3 class="font-serif text-2xl text-white font-normal">Deliverables & Scope:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs font-light leading-relaxed">
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Strategic Content Calendar</p>
+                <p class="text-[#8A8A8A]">Detailed monthly schedule outlining themes, video hooks, carousels, and stories produced in advance.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Community Care & Inquiries</p>
+                <p class="text-[#8A8A8A]">Timely response to comments, direct message routing to sales, and active engagement in local brand niches.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Viral Short-Form Formats</p>
+                <p class="text-[#8A8A8A]">Pacing, trending audio curation, and storyboards optimized specifically for Instagram Reels and TikTok.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Executive Analytics</p>
+                <p class="text-[#8A8A8A]">Zero vanity padding. Transparent monthly reporting on audience growth, engagement rates, and link conversions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02: Digital Advertising -->
+        <div id="digital-advertising" class="scroll-mt-28 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start pt-16 border-t border-white/[0.06]">
+          <div class="lg:col-span-5 space-y-6">
+            <span class="font-mono text-xs uppercase tracking-widest text-[#7A7A7A]">02 / Paid Acquisition</span>
+            <h2 class="font-serif text-4xl text-white font-normal">Digital Advertising</h2>
+            <p class="text-sm text-[#8A8A8A] leading-relaxed font-light">
+              We design and manage precision paid advertising campaigns across Meta (Instagram, Facebook) and Google. Every rupee is deployed strategically to bring qualified footfall and inquiries to your door.
+            </p>
+            <div class="pt-2">
+              <a href="/contact?service=digital-advertising" class="btn-coral text-xs uppercase tracking-wider py-3 px-6">
+                <span>Inquire About Paid Ads →</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-[#141414] p-10 rounded-3xl border border-white/[0.07] space-y-8">
+            <h3 class="font-serif text-2xl text-white font-normal">Deliverables & Scope:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs font-light leading-relaxed">
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Hyper-Local Radius Targeting</p>
+                <p class="text-[#8A8A8A]">Precise geographic radius targeting around your business address to capture nearby shoppers and diners.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">High-Converting Direct Creatives</p>
+                <p class="text-[#8A8A8A]">Static cards, video ads, and carousel sets engineered with psychological purchase triggers.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Dynamic Retargeting Funnels</p>
+                <p class="text-[#8A8A8A]">Re-engaging profile visitors and website lookers with tailored offers to close customer decisions.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Daily Bid & Budget Control</p>
+                <p class="text-[#8A8A8A]">Continuous optimization to cut ineffective ad sets and pour budget onto top-performing winners.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03: Content Creation -->
+        <div id="content-creation" class="scroll-mt-28 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start pt-16 border-t border-white/[0.06]">
+          <div class="lg:col-span-5 space-y-6">
+            <span class="font-mono text-xs uppercase tracking-widest text-[#7A7A7A]">03 / Visual Media</span>
+            <h2 class="font-serif text-4xl text-white font-normal">Content Creation</h2>
+            <p class="text-sm text-[#8A8A8A] leading-relaxed font-light">
+              In an endless stream of digital noise, mediocre photos and generic templates are invisible. We produce memorable visual assets and short-form videos that captivate and tell your unique brand story.
+            </p>
+            <div class="pt-2">
+              <a href="/contact?service=content-creation" class="btn-coral text-xs uppercase tracking-wider py-3 px-6">
+                <span>Inquire About Content →</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-[#141414] p-10 rounded-3xl border border-white/[0.07] space-y-8">
+            <h3 class="font-serif text-2xl text-white font-normal">Deliverables & Scope:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs font-light leading-relaxed">
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Viral Reel Production</p>
+                <p class="text-[#8A8A8A]">Fast-paced editing, dynamic captions, sound design, and color grading tuned for high retention.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Product & Culinary Direction</p>
+                <p class="text-[#8A8A8A]">Art-directed shoot frameworks to showcase your dishes, garments, or retail items in their best light.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Persuasive Brand Storytelling</p>
+                <p class="text-[#8A8A8A]">Engaging captions and founder narratives that communicate authenticity and spark genuine comments.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Brand Collateral Design</p>
+                <p class="text-[#8A8A8A]">Digital menu layouts, promotional banners, event flyers, and story announcement templates.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04: Brand Identity & Development -->
+        <div id="brand-identity" class="scroll-mt-28 grid grid-cols-1 lg:grid-cols-12 gap-16 items-start pt-16 border-t border-white/[0.06]">
+          <div class="lg:col-span-5 space-y-6">
+            <span class="font-mono text-xs uppercase tracking-widest text-[#7A7A7A]">04 / Foundational Branding</span>
+            <h2 class="font-serif text-4xl text-white font-normal">Brand Identity & Development</h2>
+            <p class="text-sm text-[#8A8A8A] leading-relaxed font-light">
+              We turn small local businesses into iconic brands. We build full identity systems—from logo suites and typography to color harmony and packaging guidelines—giving you immense credibility.
+            </p>
+            <div class="pt-2">
+              <a href="/contact?service=brand-identity" class="btn-coral text-xs uppercase tracking-wider py-3 px-6">
+                <span>Inquire About Branding →</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-[#141414] p-10 rounded-3xl border border-white/[0.07] space-y-8">
+            <h3 class="font-serif text-2xl text-white font-normal">Deliverables & Scope:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs font-light leading-relaxed">
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Complete Logo Mark Suite</p>
+                <p class="text-[#8A8A8A]">Primary mark, horizontal wordmark, compact monogram, and favicon formats in vector SVG/PNG.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Brand Guidelines Book</p>
+                <p class="text-[#8A8A8A]">Comprehensive handbook detailing typography hierarchies, color values (HEX/RGB/CMYK), and usage rules.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Packaging & Signage</p>
+                <p class="text-[#8A8A8A]">Carry bags, coffee cups, packaging labels, stickers, and exterior signage mockups.</p>
+              </div>
+              <div class="space-y-2">
+                <p class="font-serif text-base text-[#E87348] font-normal">Stationery & Digital Kit</p>
+                <p class="text-[#8A8A8A]">Business cards, letterheads, invoice templates, and Instagram highlight covers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE ESTIMATOR -->
+    <section class="py-28 bg-[#0A0A0A] border-b border-white/[0.06] relative">
+      <div class="max-w-5xl mx-auto px-6 lg:px-12">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <span class="text-xs font-mono uppercase tracking-widest text-[#E87348]">Estimation</span>
+          <h2 class="font-serif text-4xl text-white font-normal">Estimate Your Growth Scope</h2>
+          <p class="text-[#8A8A8A] text-sm font-light">Select the services you need to view our recommended engagement format and timeline.</p>
+        </div>
+
+        <div class="bg-[#141414] rounded-3xl p-8 sm:p-12 border border-white/[0.07]">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <div class="lg:col-span-7 space-y-5">
+              <p class="text-xs font-mono uppercase tracking-widest text-[#7A7A7A]">Choose Desired Services:</p>
+              
+              <div class="space-y-3 text-xs font-light">
+                <label class="flex items-center gap-3 p-3.5 rounded-xl bg-[#0D0D0D] border border-white/[0.07] cursor-pointer hover:border-[#E87348]/40 transition-colors">
+                  <input type="checkbox" class="estimator-service w-4 h-4 accent-[#E87348] rounded" checked value="social">
+                  <span class="text-white">Social Media Management & Organic Growth</span>
+                </label>
+
+                <label class="flex items-center gap-3 p-3.5 rounded-xl bg-[#0D0D0D] border border-white/[0.07] cursor-pointer hover:border-[#E87348]/40 transition-colors">
+                  <input type="checkbox" class="estimator-service w-4 h-4 accent-[#E87348] rounded" checked value="ads">
+                  <span class="text-white">Precision Digital Advertising (Meta & Google Ads)</span>
+                </label>
+
+                <label class="flex items-center gap-3 p-3.5 rounded-xl bg-[#0D0D0D] border border-white/[0.07] cursor-pointer hover:border-[#E87348]/40 transition-colors">
+                  <input type="checkbox" class="estimator-service w-4 h-4 accent-[#E87348] rounded" value="content">
+                  <span class="text-white">Short-Form Video & Visual Content Creation</span>
+                </label>
+
+                <label class="flex items-center gap-3 p-3.5 rounded-xl bg-[#0D0D0D] border border-white/[0.07] cursor-pointer hover:border-[#E87348]/40 transition-colors">
+                  <input type="checkbox" class="estimator-service w-4 h-4 accent-[#E87348] rounded" value="branding">
+                  <span class="text-white">Brand Identity, Logo Suite & Visual Redesign</span>
+                </label>
+              </div>
+
+              <div class="pt-2">
+                <label for="estimator-size" class="block text-[11px] font-mono uppercase tracking-wider text-[#7A7A7A] mb-2">Current Business Stage:</label>
+                <select id="estimator-size" class="w-full bg-[#0D0D0D] border border-white/15 text-white rounded-xl p-3 text-xs focus:outline-none focus:border-[#E87348]">
+                  <option value="startup">Brand New Venture / Pre-Launch</option>
+                  <option value="local" selected>Established Local Business / Shop / Cafe</option>
+                  <option value="scaling">Rapidly Scaling Brand / E-commerce</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-[#0D0D0D] p-8 rounded-2xl border border-[#E87348]/25 flex flex-col justify-between space-y-6">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-[#7A7A7A] block mb-2">Recommended Format</span>
+                <p id="estimator-recommendation" class="font-serif text-2xl text-[#E87348] font-normal">Growth Accelerator Partnership</p>
+                <div class="mt-4 pt-4 border-t border-white/[0.06] space-y-2 text-xs text-[#7A7A7A] font-light">
+                  <div class="flex justify-between">
+                    <span>Selected Modules:</span>
+                    <span id="estimator-scope-count" class="text-white font-mono">2 Selected</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Implementation Window:</span>
+                    <span id="estimator-timeline" class="text-white font-mono">4–6 Weeks Full Rollout</span>
+                  </div>
+                </div>
+              </div>
+
+              <a href="/contact" class="btn-coral w-full text-center py-3 text-xs uppercase tracking-wider justify-center">
+                <span>Lock in This Strategy →</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-28 bg-[#0D0D0D] border-b border-white/[0.06]">
+      <div class="max-w-4xl mx-auto px-6 lg:px-12">
+        <div class="text-center mb-16 space-y-3">
+          <span class="text-xs font-mono uppercase tracking-widest text-[#7A7A7A]">Clarification</span>
+          <h2 class="font-serif text-4xl text-white font-normal">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="space-y-4">
+          <div class="accordion-item rounded-2xl border border-white/[0.07] bg-[#141414] p-6">
+            <button class="accordion-trigger w-full flex items-center justify-between text-left focus:outline-none">
+              <span class="font-serif text-xl text-white">How soon can we expect results from our campaigns?</span>
+              <span class="font-mono text-sm text-[#E87348] font-bold">+</span>
+            </button>
+            <div class="accordion-content hidden pt-4 text-xs text-[#8A8A8A] leading-relaxed font-light">
+              Paid digital advertising (Meta & Google Ads) can start driving inquiries and footfall within 3 to 7 days of campaign launch. Organic social media growth and brand recognition are compound investments that gather massive momentum over 60 to 90 days.
+            </div>
+          </div>
+
+          <div class="accordion-item rounded-2xl border border-white/[0.07] bg-[#141414] p-6">
+            <button class="accordion-trigger w-full flex items-center justify-between text-left focus:outline-none">
+              <span class="font-serif text-xl text-white">What minimum ad budget do I need for digital ads?</span>
+              <span class="font-mono text-sm text-[#E87348] font-bold">+</span>
+            </button>
+            <div class="accordion-content hidden pt-4 text-xs text-[#8A8A8A] leading-relaxed font-light">
+              We recommend small local businesses start with a modest daily ad spend (e.g. ₹300 to ₹1,000/day) during the testing phase. We strictly optimize every penny to prove positive return before recommending any scaling.
+            </div>
+          </div>
+
+          <div class="accordion-item rounded-2xl border border-white/[0.07] bg-[#141414] p-6">
+            <button class="accordion-trigger w-full flex items-center justify-between text-left focus:outline-none">
+              <span class="font-serif text-xl text-white">Are there long-term lock-in contracts?</span>
+              <span class="font-mono text-sm text-[#E87348] font-bold">+</span>
+            </button>
+            <div class="accordion-content hidden pt-4 text-xs text-[#8A8A8A] leading-relaxed font-light">
+              No. We believe in earning our partnership every single month. We work on month-to-month retainers for marketing management, and milestone-based agreements for one-time branding projects.
+            </div>
+          </div>
+
+          <div class="accordion-item rounded-2xl border border-white/[0.07] bg-[#141414] p-6">
+            <button class="accordion-trigger w-full flex items-center justify-between text-left focus:outline-none">
+              <span class="font-serif text-xl text-white">Do you provide content recording on-site for local businesses?</span>
+              <span class="font-mono text-sm text-[#E87348] font-bold">+</span>
+            </button>
+            <div class="accordion-content hidden pt-4 text-xs text-[#8A8A8A] leading-relaxed font-light">
+              Yes. For local businesses within our service area, we organize coordinated filming days. For remote partners, we provide direct filming guides, shot lists, and smartphone tips for your staff while we handle 100% of the scripting, editing, sound, and graphics.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#080808] text-white border-t border-white/[0.06] pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/[0.06]">
+        <div class="space-y-4">
+          <p class="text-sm font-serif italic text-white/90">"From Small Business to Recognizable Brand."</p>
+          <p class="text-xs text-[#7A7A7A] leading-relaxed font-light max-w-sm">We help small businesses build a strong identity, create engaging content and grow online.</p>
+        </div>
+
+        <div class="space-y-3">
+          <p class="text-[11px] font-mono uppercase tracking-widest text-[#E87348]">Navigation</p>
+          <ul class="space-y-2 text-xs text-[#7A7A7A]">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="/services" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="/our-work" class="hover:text-white transition-colors">Our Work</a></li>
+            <li><a href="/about-us" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="/contact" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <p class="text-[11px] font-mono uppercase tracking-widest text-[#E87348]">Disciplines</p>
+          <ul class="space-y-2 text-xs text-[#7A7A7A] font-light">
+            <li><a href="#social-media" class="hover:text-white">Social Media Management</a></li>
+            <li><a href="#digital-advertising" class="hover:text-white">Digital Advertising</a></li>
+            <li><a href="#content-creation" class="hover:text-white">Content Creation</a></li>
+            <li><a href="#brand-identity" class="hover:text-white">Brand Identity & Development</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <p class="text-[11px] font-mono uppercase tracking-widest text-[#E87348]">Connect</p>
+          <ul class="space-y-2 text-xs text-[#7A7A7A] font-light">
+            <li><a href="mailto:hello@sagardigitalmarketing.com" class="hover:text-white">hello@sagardigitalmarketing.com</a></li>
+            <li><span>+91 (Placeholder) / WhatsApp Ready</span></li>
+            <li><span>Mon – Sat: 9:30 AM – 7:00 PM IST</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#7A7A7A]">
+        <p>&copy; <span class="current-year"></span> SAGAR DIGITAL MARKETING. All rights reserved.</p>
+        <p class="text-[#555555] tracking-wider text-[11px] uppercase">
+          Built by <span class="text-white/60 hover:text-[#E87348] transition-colors">klappdevelopers</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/lenis.min.js"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/services.js"></script>
+</body>
+</html>

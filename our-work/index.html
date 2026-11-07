@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work & Blueprints | Editorial Agency</title>
+  <meta name="description" content="Explore selected conceptual case studies and strategic blueprints in branding, content, social media, and digital advertising.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              DEFAULT: '#0A0A0A',
+              surface: '#111111',
+              card: '#141414',
+              hover: '#191919'
+            },
+            coral: {
+              DEFAULT: '#E87348',
+              hover: '#F28054',
+              dark: '#C95326',
+              muted: 'rgba(232, 115, 72, 0.12)'
+            },
+            subtle: '#7A7A7A'
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-[#0A0A0A] text-[#F5F5F5] flex flex-col min-h-screen selection:bg-[#E87348] selection:text-white">
+
+  <!-- TOP NAVIGATION (NO BRAND NAME, NO LOGO) -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#0A0A0A]/90 backdrop-blur-md border-b border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <nav class="hidden md:flex items-center gap-10">
+        <a href="/" class="nav-link text-xs uppercase tracking-widest text-white/75 hover:text-[#E87348] transition-colors" data-nav-item="desktop">Home</a>
+        <a href="/services" class="nav-link text-xs uppercase tracking-widest text-white/75 hover:text-[#E87348] transition-colors" data-nav-item="desktop">Services</a>
+        <a href="/our-work" class="nav-link text-xs uppercase tracking-widest text-white/75 hover:text-[#E87348] transition-colors" data-nav-item="desktop">Our Work</a>
+        <a href="/about-us" class="nav-link text-xs uppercase tracking-widest text-white/75 hover:text-[#E87348] transition-colors" data-nav-item="desktop">About Us</a>
+        <a href="/contact" class="nav-link text-xs uppercase tracking-widest text-white/75 hover:text-[#E87348] transition-colors" data-nav-item="desktop">Contact</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <a href="/contact" class="btn-coral text-xs uppercase tracking-wider py-2.5 px-6">
+          <span>Let's Talk</span>
+          <span class="text-xs">→</span>
+        </a>
+      </div>
+
+      <button id="mobile-menu-toggle" type="button" aria-label="Open Navigation Menu" class="md:hidden p-2 text-white/80 hover:text-[#E87348] transition-colors">
+        <span class="text-xs uppercase tracking-widest font-mono">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu-backdrop" class="fixed inset-0 bg-[#0A0A0A]/90 backdrop-blur-md z-50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+  <aside id="mobile-menu-drawer" class="fixed top-0 right-0 w-full max-w-sm h-full bg-[#0D0D0D] text-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col justify-between p-8 border-l border-white/10">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10">
+        <span class="text-xs font-mono uppercase tracking-widest text-[#7A7A7A]">Navigation</span>
+        <button id="mobile-menu-close" class="text-xs font-mono uppercase tracking-wider text-muted hover:text-white">
+          Close [×]
+        </button>
+      </div>
+
+      <nav class="flex flex-col gap-6 mt-10">
+        <a href="/" class="nav-link text-2xl font-serif text-white/80 hover:text-[#E87348] transition-colors">Home</a>
+        <a href="/services" class="nav-link text-2xl font-serif text-white/80 hover:text-[#E87348] transition-colors">Services</a>
+        <a href="/our-work" class="nav-link text-2xl font-serif text-white/80 hover:text-[#E87348] transition-colors">Our Work</a>
+        <a href="/about-us" class="nav-link text-2xl font-serif text-white/80 hover:text-[#E87348] transition-colors">About Us</a>
+        <a href="/contact" class="nav-link text-2xl font-serif text-white/80 hover:text-[#E87348] transition-colors">Contact</a>
+      </nav>
+    </div>
+
+    <div class="pt-8 border-t border-white/10 space-y-4">
+      <a href="/contact" class="btn-coral w-full text-center py-3.5 text-xs uppercase tracking-wider justify-center">
+        <span>Let's Talk</span>
+        <span>→</span>
+      </a>
+      <p class="text-[11px] font-mono text-[#7A7A7A] text-center tracking-wider uppercase">From Small Business to Recognizable Brand</p>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="flex-grow pt-20">
+    
+    <section class="bg-[#0A0A0A] py-24 lg:py-32 border-b border-white/[0.06] relative">
+      <div class="ambient-glow"></div>
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+        <div class="max-w-3xl space-y-6">
+          <span class="text-xs font-mono uppercase tracking-widest gradient-text font-semibold">0 / Foundational Blueprints</span>
+          <h1 class="font-serif text-5xl sm:text-7xl text-white font-normal leading-[1.05]">
+            <span class="elastic-lettering" data-text="Creative Work." data-loop="true" data-loop-interval="4600">Creative Work.</span><br>
+            <span class="italic gradient-text font-light">Real Possibilities.</span>
+          </h1>
+          <p class="text-lg sm:text-xl font-serif italic text-[#8A8A8A] font-light leading-relaxed">
+            As an honest new creative studio, we publish 0 fabricated client metrics. Below are our conceptual blueprints showing how we build market authority.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK GALLERY -->
+    <section class="py-24 bg-[#0D0D0D] border-b border-white/[0.06]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap items-center gap-3 mb-16 pb-6 border-b border-white/[0.06]">
+          <button type="button" class="filter-btn px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider border transition-all bg-[#141414] text-[#E87348] border-[#E87348]/40" data-filter="all">
+            All Work (0)
+          </button>
+          <button type="button" class="filter-btn px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider border transition-all bg-[#0A0A0A] text-[#8A8A8A] border-white/[0.07] hover:border-white/30" data-filter="branding">
+            Brand Identity (0)
+          </button>
+          <button type="button" class="filter-btn px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider border transition-all bg-[#0A0A0A] text-[#8A8A8A] border-white/[0.07] hover:border-white/30" data-filter="social">
+            Social & Content (0)
+          </button>
+          <button type="button" class="filter-btn px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider border transition-all bg-[#0A0A0A] text-[#8A8A8A] border-white/[0.07] hover:border-white/30" data-filter="ads">
+            Digital Advertising (0)
+          </button>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Card 1 -->
+          <article class="project-card flex flex-col justify-between bg-[#141414] rounded-3xl overflow-hidden border border-white/[0.07] hover:border-[#E87348]/40 transition-all" data-category="branding social">
+            <div>
+              <div class="h-64 bg-[#181818] flex flex-col items-center justify-center p-8 text-center text-white relative">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-[#E87348] bg-[#111111] px-3 py-1 rounded-full mb-3 border border-white/[0.08]">Conceptual Blueprint</span>
+                <h3 class="font-serif text-2xl text-white font-normal">Artisan Roast & Co.</h3>
+                <p class="text-xs text-[#8A8A8A] mt-1 font-light">Specialty Coffee & Bakery</p>
+              </div>
+              <div class="p-8 space-y-3">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-[#7A7A7A]">Cafe & Retail</span>
+                <h4 class="font-serif text-xl text-white font-normal">From Neighborhood Secret to City-Wide Destination</h4>
+                <p class="text-xs text-[#8A8A8A] leading-relaxed font-light">
+                  Artisan brand packaging, sensory slow-motion baking videos, and localized weekend reservation ad funnels.
+                </p>
+              </div>
+            </div>
+            <div class="p-8 pt-0">
+              <button type="button" class="view-case-study text-xs font-mono uppercase tracking-wider text-[#E87348] hover:underline font-medium" data-project="artisan-roast">
+                View Full Blueprint →
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="project-card flex flex-col justify-between bg-[#141414] rounded-3xl overflow-hidden border border-white/[0.07] hover:border-[#E87348]/40 transition-all" data-category="branding ads">
+            <div>
+              <div class="h-64 bg-[#181818] flex flex-col items-center justify-center p-8 text-center text-white relative">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-[#E87348] bg-[#111111] px-3 py-1 rounded-full mb-3 border border-white/[0.08]">Conceptual Blueprint</span>
+                <h3 class="font-serif text-2xl text-white font-normal">Kura Studio Apparel</h3>
+                <p class="text-xs text-[#8A8A8A] mt-1 font-light">Contemporary Fashion</p>
+              </div>
+              <div class="p-8 space-y-3">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-[#7A7A7A]">Fashion & Lifestyle</span>
+                <h4 class="font-serif text-xl text-white font-normal">Elevating Perceived Luxury & Converting Drops</h4>
+                <p class="text-xs text-[#8A8A8A] leading-relaxed font-light">
+                  Editorial lookbook typography, street-style aesthetic guidelines, and collection drop ad funnels.
+                </p>
+              </div>
+            </div>
+            <div class="p-8 pt-0">
+              <button type="button" class="view-case-study text-xs font-mono uppercase tracking-wider text-[#E87348] hover:underline font-medium" data-project="kura-apparel">
+                View Full Blueprint →
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="project-card flex flex-col justify-between bg-[#141414] rounded-3xl overflow-hidden border border-white/[0.07] hover:border-[#E87348]/40 transition-all" data-category="ads social">
+            <div>
+              <div class="h-64 bg-[#181818] flex flex-col items-center justify-center p-8 text-center text-white relative">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-[#E87348] bg-[#111111] px-3 py-1 rounded-full mb-3 border border-white/[0.08]">Conceptual Blueprint</span>
+                <h3 class="font-serif text-2xl text-white font-normal">Apex Dental Clinic</h3>
+                <p class="text-xs text-[#8A8A8A] mt-1 font-light">Cosmetic Aesthetics</p>
+              </div>
+              <div class="p-8 space-y-3">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-[#7A7A7A]">Professional Services</span>
+                <h4 class="font-serif text-xl text-white font-normal">Positioning the Clinic as the Trusted Local Choice</h4>
+                <p class="text-xs text-[#8A8A8A] leading-relaxed font-light">
+                  Patient transformation storytelling, friendly myth-busting reels, and local consultation acquisition funnels.
+                </p>
+              </div>
+            </div>
+            <div class="p-8 pt-0">
+              <button type="button" class="view-case-study text-xs font-mono uppercase tracking-wider text-[#E87348] hover:underline font-medium" data-project="apex-dental">
+                View Full Blueprint →
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="project-card flex flex-col justify-between bg-[#141414] rounded-3xl overflow-hidden border border-white/[0.07] hover:border-[#E87348]/40 transition-all" data-category="social">
+            <div>
+              <div class="h-64 bg-[#181818] flex flex-col items-center justify-center p-8 text-center text-white relative">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-[#E87348] bg-[#111111] px-3 py-1 rounded-full mb-3 border border-white/[0.08]">Conceptual Blueprint</span>
+                <h3 class="font-serif text-2xl text-white font-normal">Nomad Street Kitchen</h3>
+                <p class="text-xs text-[#8A8A8A] mt-1 font-light">Gourmet Street Food</p>
+              </div>
+              <div class="p-8 space-y-3">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-[#7A7A7A]">Hospitality</span>
+                <h4 class="font-serif text-xl text-white font-normal">Igniting Weekday Lunch Footfall & Social Buzz</h4>
+                <p class="text-xs text-[#8A8A8A] leading-relaxed font-light">
+                  Street branding paired with sizzling food reels targeted at nearby university students and tech workers.
+                </p>
+              </div>
+            </div>
+            <div class="p-8 pt-0">
+              <button type="button" class="view-case-study text-xs font-mono uppercase tracking-wider text-[#E87348] hover:underline font-medium" data-project="nomad-street">
+                View Full Blueprint →
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="project-card flex flex-col justify-between bg-[#141414] rounded-3xl overflow-hidden border border-white/[0.07] hover:border-[#E87348]/40 transition-all" data-category="branding">
+            <div>
+              <div class="h-64 bg-[#181818] flex flex-col items-center justify-center p-8 text-center text-white relative">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-[#E87348] bg-[#111111] px-3 py-1 rounded-full mb-3 border border-white/[0.08]">Conceptual Blueprint</span>
+                <h3 class="font-serif text-2xl text-white font-normal">Luxe Cleanse Botanical</h3>
+                <p class="text-xs text-[#8A8A8A] mt-1 font-light">Organic Skincare</p>
+              </div>
+              <div class="p-8 space-y-3">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-[#7A7A7A]">Beauty & Wellness</span>
+                <h4 class="font-serif text-xl text-white font-normal">Crafting a Premium Shelf-Ready Apothecary Identity</h4>
+                <p class="text-xs text-[#8A8A8A] leading-relaxed font-light">
+                  Botanical unboxing experience, embossed amber bottle labels, and 42-page brand guidelines for retail distribution.
+                </p>
+              </div>
+            </div>
+            <div class="p-8 pt-0">
+              <button type="button" class="view-case-study text-xs font-mono uppercase tracking-wider text-[#E87348] hover:underline font-medium" data-project="luxe-cleanse">
+                View Full Blueprint →
+              </button>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="project-card flex flex-col justify-between bg-[#141414] rounded-3xl overflow-hidden border border-white/[0.07] hover:border-[#E87348]/40 transition-all" data-category="social ads">
+            <div>
+              <div class="h-64 bg-[#181818] flex flex-col items-center justify-center p-8 text-center text-white relative">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-[#E87348] bg-[#111111] px-3 py-1 rounded-full mb-3 border border-white/[0.08]">Conceptual Blueprint</span>
+                <h3 class="font-serif text-2xl text-white font-normal">Zenith Advisory</h3>
+                <p class="text-xs text-[#8A8A8A] mt-1 font-light">Corporate Law & Tax</p>
+              </div>
+              <div class="p-8 space-y-3">
+                <span class="text-[11px] font-mono uppercase tracking-wider text-[#7A7A7A]">Corporate Services</span>
+                <h4 class="font-serif text-xl text-white font-normal">Transforming Traditional Practice into Digital Authority</h4>
+                <p class="text-xs text-[#8A8A8A] leading-relaxed font-light">
+                  Executive LinkedIn thought-leadership, tax regulatory explainer carousels, and consultation funnels.
+                </p>
+              </div>
+            </div>
+            <div class="p-8 pt-0">
+              <button type="button" class="view-case-study text-xs font-mono uppercase tracking-wider text-[#E87348] hover:underline font-medium" data-project="zenith-legal">
+                View Full Blueprint →
+              </button>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CASE STUDY MODAL -->
+    <div id="case-study-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+      <div id="modal-backdrop" class="fixed inset-0 bg-[#0A0A0A]/90 backdrop-blur-md"></div>
+      
+      <div class="relative w-full max-w-2xl bg-[#141414] text-white rounded-3xl shadow-2xl border border-white/[0.08] overflow-hidden z-10 my-8">
+        <div class="bg-[#181818] p-8 relative border-b border-white/[0.06]">
+          <button id="modal-close" class="absolute top-8 right-8 text-xs font-mono uppercase text-[#7A7A7A] hover:text-[#E87348]">
+            Close [×]
+          </button>
+          <span id="modal-badge" class="px-3 py-1 rounded-full bg-[#111111] text-[#E87348] text-[10px] font-mono uppercase tracking-wider inline-block mb-3 border border-white/[0.08]">Conceptual Blueprint</span>
+          <h3 id="modal-title" class="font-serif text-3xl text-white font-normal">Project Title</h3>
+          <p id="modal-sector" class="text-xs font-mono text-[#8A8A8A] mt-1">Sector Name</p>
+        </div>
+
+        <div class="p-8 space-y-6 max-h-[70vh] overflow-y-auto">
+          <div>
+            <h4 class="text-[11px] font-mono uppercase tracking-wider text-[#7A7A7A] font-bold mb-2">The Business Challenge</h4>
+            <p id="modal-challenge" class="text-xs text-[#CCCCCC] leading-relaxed font-light">Challenge description.</p>
+          </div>
+
+          <div>
+            <h4 class="text-[11px] font-mono uppercase tracking-wider text-[#7A7A7A] font-bold mb-2">The Strategic Solution</h4>
+            <p id="modal-solution" class="text-xs text-[#CCCCCC] leading-relaxed font-light">Solution description.</p>
+          </div>
+
+          <div>
+            <h4 class="text-[11px] font-mono uppercase tracking-wider text-[#7A7A7A] font-bold mb-2">Deliverables</h4>
+            <ul id="modal-deliverables" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2"></ul>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-[#0D0D0D] border border-white/[0.06]">
+            <h4 class="text-[11px] font-mono uppercase tracking-wider text-[#E87348] font-bold mb-1">Commercial Impact</h4>
+            <p id="modal-outcome" class="text-xs text-[#8A8A8A] leading-relaxed font-light">Outcome details.</p>
+          </div>
+
+          <div class="pt-4 border-t border-white/[0.06] flex items-center justify-between">
+            <span class="text-xs text-[#7A7A7A] font-light">Ready for a similar strategy?</span>
+            <a href="/contact" class="btn-coral text-xs uppercase tracking-wider py-2.5 px-6">
+              <span>Discuss Your Brand →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#080808] text-white border-t border-white/[0.06] pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/[0.06]">
+        <div class="space-y-4">
+          <p class="text-sm font-serif italic text-white/90">"From Small Business to Recognizable Brand."</p>
+          <p class="text-xs text-[#7A7A7A] leading-relaxed font-light max-w-sm">We help small businesses build a strong identity, create engaging content and grow online.</p>
+        </div>
+
+        <div class="space-y-3">
+          <p class="text-[11px] font-mono uppercase tracking-widest text-[#E87348]">Navigation</p>
+          <ul class="space-y-2 text-xs text-[#7A7A7A]">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="/services" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="/our-work" class="hover:text-white transition-colors">Our Work</a></li>
+            <li><a href="/about-us" class="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="/contact" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <p class="text-[11px] font-mono uppercase tracking-widest text-[#E87348]">Disciplines</p>
+          <ul class="space-y-2 text-xs text-[#7A7A7A] font-light">
+            <li><a href="/services#social-media" class="hover:text-white transition-colors">Social Media Management</a></li>
+            <li><a href="/services#digital-advertising" class="hover:text-white transition-colors">Digital Advertising</a></li>
+            <li><a href="/services#content-creation" class="hover:text-white transition-colors">Content Creation</a></li>
+            <li><a href="/services#brand-identity" class="hover:text-white transition-colors">Brand Identity & Development</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <p class="text-[11px] font-mono uppercase tracking-widest text-[#E87348]">Connect</p>
+          <ul class="space-y-2 text-xs text-[#7A7A7A] font-light">
+            <li><a href="mailto:hello@sagardigitalmarketing.com" class="hover:text-white">hello@sagardigitalmarketing.com</a></li>
+            <li><span>+91 (Placeholder) / WhatsApp Ready</span></li>
+            <li><span>Mon – Sat: 9:30 AM – 7:00 PM IST</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#7A7A7A]">
+        <p>&copy; <span class="current-year"></span> SAGAR DIGITAL MARKETING. All rights reserved.</p>
+        <p class="text-[#555555] tracking-wider text-[11px] uppercase">
+          Built by <span class="text-white/60 hover:text-[#E87348] transition-colors">klappdevelopers</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/lenis.min.js"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/work.js"></script>
+</body>
+</html>
