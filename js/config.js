@@ -19,8 +19,7 @@ const BRAND_CONFIG = {
     phoneDisplay: "+91 70326 19866",
     whatsappLink: "https://wa.me/917032619866?text=Hello%20Sagar%20Digital%20Marketing%2C%20I%20would%20like%20to%20discuss%20growing%20my%20business.",
     address: "Creative Hub & Studio, Metro City, India",
-    addressDisplay: "Creative Hub & Studio, India (Consultations Worldwide)",
-    workingHours: "Monday – Saturday: 9:30 AM – 7:00 PM IST"
+    addressDisplay: "Creative Hub & Studio, India (Consultations Worldwide)"
   },
 
   // Social Channels
