@@ -853,7 +853,7 @@ function initMomentumRing() {
 }
 
 // Progressive Stacking Process Deck (Section 07: The Five-Step Growth System)
-// Implements deliberate, slow, cinematic stacking depth as cards arrive one after another
+// Ensures each card sits in the middle alone; next card is 100% hidden until user scrolls
 function initProcessStack() {
   const container = document.querySelector(".process-stack-container");
   if (!container) return;
@@ -862,41 +862,75 @@ function initProcessStack() {
 
   const updateStack = () => {
     const vh = window.innerHeight;
+    const isMobile = window.innerWidth <= 768;
+    const stepOffset = isMobile ? 10 : 16;
+    const baseDock = isMobile ? Math.max(75, (vh / 2) - 120) : Math.max(90, (vh / 2) - 140);
+
     const cardRects = cards.map((c) => c.getBoundingClientRect());
 
     cards.forEach((card, i) => {
       const currentRect = cardRects[i];
-      const stickyOffset = 96 + i * 26;
+      const stickyDock = baseDock + (i * stepOffset);
       const inner = card.querySelector(".process-stack-card-inner");
+      if (!inner) return;
 
-      // Calculate the slow, progressive stacking pressure from subsequent incoming cards
+      // 1. Entry animation for this card as it rises from below
+      // When card top is >= vh (below screen), it is completely invisible (opacity 0)
+      // Only when it scrolls into the viewport does it fade and slide up smoothly
+      let entryOpacity = 1;
+      let entryTranslateY = 0;
+      let entryScale = 1;
+
+      if (currentRect.top > stickyDock) {
+        // Approaching sticky dock
+        if (currentRect.top >= vh) {
+          // Completely off-screen below: hide it completely so it NEVER peeks at bottom
+          entryOpacity = 0;
+          entryTranslateY = 60;
+          entryScale = 0.95;
+          card.style.visibility = "hidden";
+        } else {
+          // Entering the screen: smooth progressive reveal
+          card.style.visibility = "visible";
+          const travelTotal = vh - stickyDock;
+          const progress = Math.max(0, Math.min(1, (vh - currentRect.top) / travelTotal));
+          // Ease-in opacity curve
+          entryOpacity = Math.min(1, Math.pow(progress, 1.4) * 1.2);
+          entryTranslateY = (1 - progress) * 50;
+          entryScale = 0.95 + (progress * 0.05);
+        }
+      } else {
+        card.style.visibility = "visible";
+      }
+
+      // 2. Depth effect when subsequent cards (i+1, i+2, ...) stack on top of this card
       let stackDepth = 0;
       for (let j = i + 1; j < cards.length; j++) {
         const nextTop = cardRects[j].top;
-        const nextSticky = 96 + j * 26;
-        // Travel range spans from when incoming card enters viewport (vh * 0.9) to its sticky dock
-        const travelRange = (vh * 0.9) - nextSticky;
-        if (travelRange > 0) {
-          const rawProgress = (vh * 0.9 - nextTop) / travelRange;
-          const progress = Math.max(0, Math.min(1, rawProgress));
+        const nextDock = baseDock + (j * stepOffset);
+        const nextTravel = vh - nextDock;
+        if (nextTop < vh && nextTravel > 0) {
+          const progress = Math.max(0, Math.min(1, (vh - nextTop) / nextTravel));
           stackDepth += progress;
         }
       }
 
-      // Smooth, slow depth modulation
-      const scale = Math.max(0.88, 1 - stackDepth * 0.035);
-      const brightness = Math.max(0.55, 1 - stackDepth * 0.2);
-      const opacity = Math.max(0.72, 1 - stackDepth * 0.08);
+      // Depth modulation for underlying stacked cards
+      const underScale = Math.max(0.88, 1 - stackDepth * 0.035);
+      const brightness = Math.max(0.55, 1 - stackDepth * 0.22);
+      const depthOpacity = Math.max(0.7, 1 - stackDepth * 0.08);
 
-      if (inner) {
-        inner.style.transform = `scale(${scale.toFixed(3)}) translateZ(0)`;
-        inner.style.filter = `brightness(${brightness.toFixed(3)})`;
-        inner.style.opacity = opacity.toFixed(3);
-      }
+      const finalScale = (entryScale * underScale).toFixed(3);
+      const finalOpacity = (Math.min(entryOpacity, depthOpacity)).toFixed(3);
+      const finalTranslate = entryTranslateY.toFixed(1);
 
-      // Active spotlight highlight for the card currently at the top of the stack
-      const isTopVisible = stackDepth < 0.8 && currentRect.top <= stickyOffset + 60;
-      if (isTopVisible) {
+      inner.style.transform = `translateY(${finalTranslate}px) scale(${finalScale}) translateZ(0)`;
+      inner.style.filter = `brightness(${brightness.toFixed(3)})`;
+      inner.style.opacity = finalOpacity;
+
+      // Active card spotlight indicator: the topmost visible docked card
+      const isCurrent = (stackDepth < 0.7) && (currentRect.top <= stickyDock + 40) && (entryOpacity > 0.8);
+      if (isCurrent) {
         card.classList.add("is-current");
       } else {
         card.classList.remove("is-current");

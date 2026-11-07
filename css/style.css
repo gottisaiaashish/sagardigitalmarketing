@@ -571,24 +571,25 @@ html.lenis, html.lenis body {
 
 /* ===================================================
    PROGRESSIVE STACKING PROCESS DECK (SECTION 07)
-   Slow, deliberate sticky depth layering (One after another)
+   Middle-Viewport Solo Focus with Scroll-Triggered Entry
    =================================================== */
 .process-stack-container {
   position: relative;
   width: 100%;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
 }
 
 .process-stack-card {
   position: -webkit-sticky;
   position: sticky;
-  top: calc(96px + var(--card-index, 0) * 26px);
-  margin-bottom: 260px; /* Generous vertical scroll distance for unhurried, slow transitions */
+  top: calc(50vh - 140px + var(--card-index, 0) * 16px);
+  margin-bottom: 85vh; /* Massive vertical separation: next card is 100% off-screen while current card is centered */
   z-index: calc(10 + var(--card-index, 0));
 }
 
 .process-stack-card:last-child {
-  margin-bottom: 2rem;
+  margin-bottom: 15vh;
 }
 
 .process-stack-card-inner {
@@ -596,24 +597,24 @@ html.lenis, html.lenis body {
   background: linear-gradient(155deg, #181513 0%, #121212 55%, #0D0D0D 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.75rem;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 -1px 0 rgba(255, 255, 255, 0.08);
-  transform-origin: 50% 12%;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.95), 0 -1px 0 rgba(255, 255, 255, 0.08);
+  transform-origin: 50% 50%;
   will-change: transform, filter, opacity;
-  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.15s ease-out;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .process-stack-card.is-current .process-stack-card-inner {
-  border-color: rgba(232, 115, 72, 0.4);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 45px rgba(232, 115, 72, 0.16);
+  border-color: rgba(232, 115, 72, 0.45);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.95), 0 0 50px rgba(232, 115, 72, 0.18);
 }
 
 @media (max-width: 768px) {
   .process-stack-card {
-    top: calc(75px + var(--card-index, 0) * 16px);
-    margin-bottom: 140px;
+    top: calc(50vh - 120px + var(--card-index, 0) * 10px);
+    margin-bottom: 70vh;
   }
   .process-stack-card:last-child {
-    margin-bottom: 1.5rem;
+    margin-bottom: 10vh;
   }
   .process-stack-card-inner {
     border-radius: 1.25rem;
