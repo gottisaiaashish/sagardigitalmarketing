@@ -40,6 +40,8 @@ const itemsToCopy = [
   'about-us',
   'about',
   'contact',
+  'robots.txt',
+  'sitemap.xml',
   'vercel.json',
   'README.md'
 ];
