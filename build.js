@@ -42,6 +42,8 @@ const itemsToCopy = [
   'contact',
   'robots.txt',
   'sitemap.xml',
+  'google51aa4ee4f3f202e7.html',
+  'google51aa4ee4f3f202e7',
   'vercel.json',
   'README.md'
 ];
