@@ -657,29 +657,26 @@ function initProcessStack() {
       if (!inner) return;
 
       // 1. Entry animation for this card as it rises from below
-      // When card top is >= vh (below screen), it is completely invisible (opacity 0)
-      // Only when it scrolls into the viewport does it fade and slide up smoothly
+      // Threshold: Card reveals with smooth fade & scale once its top is 120px above viewport bottom.
+      // Eliminates the harsh sliced/cut-off bottom edge look completely.
       let entryOpacity = 1;
-      let entryTranslateY = 0;
       let entryScale = 1;
+      const enterThreshold = vh - 120;
 
       if (currentRect.top > stickyDock) {
         // Approaching sticky dock
-        if (currentRect.top >= vh) {
-          // Completely off-screen below: hide it completely so it NEVER peeks at bottom
+        if (currentRect.top >= enterThreshold) {
+          // Off-screen or right at screen bottom: completely hidden so it never looks cut off
           entryOpacity = 0;
-          entryTranslateY = 60;
-          entryScale = 0.95;
+          entryScale = 0.94;
           card.style.visibility = "hidden";
         } else {
-          // Entering the screen: smooth progressive reveal
+          // Rising into view: smooth progressive fade and scale lift
           card.style.visibility = "visible";
-          const travelTotal = vh - stickyDock;
-          const progress = Math.max(0, Math.min(1, (vh - currentRect.top) / travelTotal));
-          // Ease-in opacity curve
-          entryOpacity = Math.min(1, Math.pow(progress, 1.4) * 1.2);
-          entryTranslateY = (1 - progress) * 50;
-          entryScale = 0.95 + (progress * 0.05);
+          const travelTotal = enterThreshold - stickyDock;
+          const progress = Math.max(0, Math.min(1, (enterThreshold - currentRect.top) / travelTotal));
+          entryOpacity = Math.min(1, progress * 1.6);
+          entryScale = 0.94 + (progress * 0.06);
         }
       } else {
         card.style.visibility = "visible";
@@ -690,9 +687,9 @@ function initProcessStack() {
       for (let j = i + 1; j < cards.length; j++) {
         const nextTop = cardRects[j].top;
         const nextDock = baseDock + (j * stepOffset);
-        const nextTravel = vh - nextDock;
-        if (nextTop < vh && nextTravel > 0) {
-          const progress = Math.max(0, Math.min(1, (vh - nextTop) / nextTravel));
+        const nextTravel = enterThreshold - nextDock;
+        if (nextTop < enterThreshold && nextTravel > 0) {
+          const progress = Math.max(0, Math.min(1, (enterThreshold - nextTop) / nextTravel));
           stackDepth += progress;
         }
       }
@@ -704,9 +701,8 @@ function initProcessStack() {
 
       const finalScale = (entryScale * underScale).toFixed(3);
       const finalOpacity = (Math.min(entryOpacity, depthOpacity)).toFixed(3);
-      const finalTranslate = entryTranslateY.toFixed(1);
 
-      inner.style.transform = `translateY(${finalTranslate}px) scale(${finalScale}) translateZ(0)`;
+      inner.style.transform = `scale(${finalScale}) translateZ(0)`;
       inner.style.filter = `brightness(${brightness.toFixed(3)})`;
       inner.style.opacity = finalOpacity;
 

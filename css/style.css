@@ -496,19 +496,19 @@ html.lenis, html.lenis body {
   position: relative;
   width: 100%;
   padding-top: 1rem;
-  padding-bottom: 4rem;
+  padding-bottom: 25vh;
 }
 
 .process-stack-card {
   position: -webkit-sticky;
   position: sticky;
   top: calc(50vh - 140px + var(--card-index, 0) * 16px);
-  margin-bottom: 85vh; /* Massive vertical separation: next card is 100% off-screen while current card is centered */
+  margin-bottom: 85vh; /* Uniform vertical separation so each card arrives solo */
   z-index: calc(10 + var(--card-index, 0));
 }
 
 .process-stack-card:last-child {
-  margin-bottom: 15vh;
+  margin-bottom: 85vh; /* Critical: gives Card 05 full travel distance to reach middle dock */
 }
 
 .process-stack-card-inner {
@@ -533,7 +533,7 @@ html.lenis, html.lenis body {
     margin-bottom: 70vh;
   }
   .process-stack-card:last-child {
-    margin-bottom: 10vh;
+    margin-bottom: 70vh;
   }
   .process-stack-card-inner {
     border-radius: 1.25rem;
